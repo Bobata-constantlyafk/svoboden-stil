@@ -41,7 +41,7 @@ async function getProductData() {
     db.product.count({ where: { isAvailableforPurchase: true } }),
     db.product.count({ where: { isAvailableforPurchase: false } }),
   ]);
-  return { active: activeCount, inActive: inActiveCount };
+  return { activeCount: activeCount, inActiveCount: inActiveCount };
 }
 
 export default async function AdminDashboard() {
@@ -67,8 +67,8 @@ export default async function AdminDashboard() {
       />
       <DashboardCard
         title="Active Products"
-        subtitle={`${formatNumber(productData.inActive)} Inactive`}
-        body={formatNumber(productData.active)}
+        subtitle={`${formatNumber(productData.inActiveCount)} Inactive`}
+        body={formatNumber(productData.activeCount)}
       />
     </div>
   );
